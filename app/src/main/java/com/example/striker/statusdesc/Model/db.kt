@@ -3,7 +3,7 @@ package com.example.striker.statusdesc.Model
 import android.arch.persistence.room.*
 
 @Entity
-public class User(id:Long,firstName:String,lastName:String,location:String,active:Boolean) {
+class User(id:Long,firstName:String,lastName:String,location:String,active:Boolean) {
     @PrimaryKey()
     var id: Long = id
     var firstName: String? = firstName

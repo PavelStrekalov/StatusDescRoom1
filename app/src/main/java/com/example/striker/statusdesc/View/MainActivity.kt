@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//DataLoad
+            //DataLoad
             val job: Job = GlobalScope.launch(Dispatchers.IO) {
                 val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "database-name").build()
                 db.UsersDao().insert(User(1, "John", "travolta1", "USA",false))
@@ -35,10 +35,10 @@ class MainActivity : AppCompatActivity()  {
                 db.UsersDao().insert(User(6, "John", "travolta6", "Ukraine",false))
                 db.UsersDao().insert(User(7, "John", "travolta7", "Lipetck",true))
                 db.UsersDao().insert(User(8, "John", "travolta8", "Moscow",true))
-                users = db.UsersDao().getAll()//.getAll()//.getAll()//?: newUser(1,"John","travolta","Moscow")
+                users = db.UsersDao().getAll()
             }
 
-//RecycleInit
+        //RecycleInit
         val linearLayoutManager = LinearLayoutManager(
             this, // Context
             LinearLayout.VERTICAL, // Orientation

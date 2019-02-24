@@ -23,7 +23,6 @@ class RecyclerViewAdapter(val users: Array<User>) : RecyclerView.Adapter<Recycle
         p0?.location?.text = users.get(p1).location
         var active = users.get(p1).active
         if(active) {
-            //  p0.checkbox_on.visibility = View.VISIBLE
             p0.checkbox_on.visibility = View.VISIBLE
         }else{
             p0.checkbox_off.visibility = View.VISIBLE
