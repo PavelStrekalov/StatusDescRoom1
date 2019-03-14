@@ -8,6 +8,10 @@
         android:orientation="vertical"
 >
 
-    <fragment android:layout_width="match_parent" android:layout_height="match_parent"
-              android:name="com.example.striker.statusdesc.View.MainFragment" />
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:id="@+id/container"
+                  android:orientation="vertical"    >
+
+    </LinearLayout>
 </LinearLayout>

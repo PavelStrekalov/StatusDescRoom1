@@ -1,4 +1,4 @@
-package com.example.striker.statusdesc.View
+package com.example.striker.statusdesc.ViewModel
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -6,28 +6,30 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.example.striker.statusdesc.Model.User
 import com.example.striker.statusdesc.R
-import com.example.striker.statusdesc.ViewModel.UserFragmentManager
+import com.example.striker.statusdesc.View.CardDetailFragment
 
-class MainActivity : AppCompatActivity()  {
+class RecyclerLogic {
 
-    lateinit private var manager:FragmentManager
-    lateinit private var mainFragment:Fragment
-    lateinit private var cardDetailFragment: Fragment
-    lateinit private var transaction: FragmentTransaction
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        manager = supportFragmentManager
-        mainFragment = MainFragment()
-        cardDetailFragment = CardDetailFragment()
-
-        UserFragmentManager().init(manager, R.id.container,mainFragment)
+    fun isUserVisible(user: User): Int {
+        var active = user.active
+        if(active) {
+            return View.VISIBLE
+        }else{
+            return View.GONE
+        }
     }
 
-    public fun onClickCard(view: View){
+    fun onClickCard(view: View,activity: AppCompatActivity){
+        lateinit var manager: FragmentManager
+        lateinit var cardDetailFragment: Fragment
+        lateinit var transaction: FragmentTransaction
+
+        manager = activity.supportFragmentManager
+
+        cardDetailFragment = CardDetailFragment()
+
         transaction = manager.beginTransaction()
 
         var Bundle = Bundle()
@@ -44,7 +46,4 @@ class MainActivity : AppCompatActivity()  {
         transaction.addToBackStack(null)
         transaction.commit()
     }
-
-
 }
-

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.example.striker.statusdesc.View.MainActivity">
+
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/objId" android:textSize="16sp"/>
+            <TextView
+                    android:text="TextView"
+                    android:id="@+id/objId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/firstName" android:textSize="16sp"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/firstName"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/lastName" android:textSize="16sp"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/lastName"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/location" android:textSize="16sp"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/location"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
+            <CheckBox
+                    android:text="@string/active"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_alignParentStart="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_alignParentTop="true" android:id="@+id/active" android:layout_marginTop="0dp"
+                    style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                    android:fontFamily="sans-serif" android:textSize="16sp"/>
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>
