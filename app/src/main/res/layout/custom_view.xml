@@ -10,8 +10,7 @@
         app:cardElevation="5dp"
         app:cardMaxElevation="7dp"
         app:contentPadding="8dp"
-        android:layout_margin="5dp"
-        android:onClick="onClickCard">
+        android:layout_margin="5dp">
     <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

@@ -17,7 +17,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-
 class MainFragment:Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -29,16 +28,17 @@ class MainFragment:Fragment() {
             LinearLayout.VERTICAL, // Orientation
             false // Reverse layout
         )
-        //val wait= //findViewById<CircularProgressView>(R.id.progress_view)
-        //  wait.visibility = View.VISIBLE
+       // val wait= activity?.findViewById<CircularProgressView>(R.id.progress_view)
+         //wait?.visibility = View.VISIBLE
         val job: Job = GlobalScope.launch(Dispatchers.IO) {
-            users = DbUtils().dbInit(inflater.context,"UserDataBase")
+            var db = DbUtils().dbInit(inflater.context,"UserDataBase")
+            users = DbUtils().getAllUsers(db)
         }
         Handler().postDelayed({
             recycler_view.layoutManager = linearLayoutManager//linearLayoutManager
             if(users != null){
-                recycler_view.adapter = RecyclerViewAdapter(users!!)
-                //wait.visibility = View.GONE
+                recycler_view.adapter = RecyclerViewAdapter(users!!,activity!!)
+                //wait?.visibility = View.GONE
             }
         },150)
         return inflater.inflate(R.layout.fragment,container, false)

@@ -6,12 +6,21 @@ import com.example.striker.statusdesc.Model.AppDatabase
 import com.example.striker.statusdesc.Model.User
 
 class DbUtils() {
-        fun dbInit(context: Context, dbName: String): Array<User> {
-            val db = Room.databaseBuilder(context, AppDatabase::class.java, dbName).build()
-            dataInsert(db)
-            var usersDao = getAll(db)
-            return usersDao
-        }
+    fun dbInit(context: Context, dbName: String): AppDatabase {
+        val db = Room.databaseBuilder(context, AppDatabase::class.java, dbName).fallbackToDestructiveMigrationFrom().build()
+        dataInsert(db)
+        return db
+    }
+
+    fun getAllUsers(db: AppDatabase): Array<User> {
+        var usersDao = getAll(db)
+        return usersDao
+    }
+
+    fun getUserById(db: AppDatabase, id: Long):User{
+        var user = db.UsersDao().getById(id = id)
+        return user
+    }
 
     fun dataInsert(db:AppDatabase): AppDatabase {
         db.UsersDao().insert(User(1, "John", "travolta1", "USA",false))

@@ -1,5 +1,6 @@
 package com.example.striker.statusdesc.View
 
+import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -8,18 +9,17 @@ import android.view.ViewGroup
 import com.example.striker.statusdesc.Model.User
 import com.example.striker.statusdesc.R
 import com.example.striker.statusdesc.ViewModel.RecyclerLogic
+import com.example.striker.statusdesc.ViewModel.UserFragmentManager
 import kotlinx.android.synthetic.main.custom_view.view.*
 
 
-
-class RecyclerViewAdapter(val users: Array<User>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(val users: Array<User>, val curActivity:FragmentActivity) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     lateinit private var transaction: FragmentTransaction
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val v: View = LayoutInflater.from(p0?.context)
             .inflate(R.layout.custom_view,p0,false)
-        p0.setOnClickListener(View.OnClickListener { users.get(p1).firstName="gavno"})
         // Return the view holder
         return ViewHolder(v)
     }
@@ -32,7 +32,9 @@ class RecyclerViewAdapter(val users: Array<User>) : RecyclerView.Adapter<Recycle
         if(p0.checkbox_on.visibility == View.GONE)  p0.checkbox_off.visibility = View.VISIBLE
 
         p0.itemView.setOnClickListener(View.OnClickListener { v ->
-            //RecyclerLogic().onClickCard(v)
+            var manager = curActivity.supportFragmentManager
+            var cardDetailFragment = CardDetailFragment()
+            UserFragmentManager().replaceFragment(manager, R.id.container, cardDetailFragment, users.get(p1).id)
         })
     }
 

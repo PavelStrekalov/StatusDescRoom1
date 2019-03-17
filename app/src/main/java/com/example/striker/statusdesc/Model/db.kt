@@ -18,8 +18,8 @@ interface UsersDao {
     @Query(value = "SELECT * FROM User")
     fun getAll(): Array<User>
 
-    @Query("SELECT * FROM User WHERE id = :id")
-    fun getById(id: Int): User
+    @Query(value = "SELECT * FROM User WHERE id = :id")
+    fun getById(id: Long):User
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(newuser: User)
