@@ -4,11 +4,14 @@ import android.arch.persistence.room.Room
 import android.content.Context
 import com.example.striker.statusdesc.Model.AppDatabase
 import com.example.striker.statusdesc.Model.User
+import org.json.JSONArray
+import java.net.HttpURLConnection
+import java.net.URL
 
 class DbUtils() {
     fun dbInit(context: Context, dbName: String): AppDatabase {
         val db = Room.databaseBuilder(context, AppDatabase::class.java, dbName).fallbackToDestructiveMigrationFrom().build()
-        dataInsert(db)
+        //dataInsert(db)
         return db
     }
 
@@ -22,16 +25,47 @@ class DbUtils() {
         return user
     }
 
-    fun dataInsert(db:AppDatabase): AppDatabase {
-        db.UsersDao().insert(User(1, "John", "travolta1", "USA",false))
-        db.UsersDao().insert(User(2, "John", "travolta2", "Russia",true))
-        db.UsersDao().insert(User(3, "John", "travolta3", "Canada",true))
-        db.UsersDao().insert(User(4, "John", "travolta4", "Serbiya",false))
-        db.UsersDao().insert(User(5, "John", "travolta5", "Finland",true))
-        db.UsersDao().insert(User(6, "John", "travolta6", "Ukraine",false))
-        db.UsersDao().insert(User(7, "John", "travolta7", "Lipetck",true))
-        db.UsersDao().insert(User(8, "John", "travolta8", "Moscow",true))
+    fun dataInsert(db:AppDatabase, data:Array<User>): AppDatabase {
+        var x = 0
+        while (x < data.size){
+            db.UsersDao().insert(data[x])
+            x++
+        }
         return db
+    }
+
+    fun dataLoadWithConnect(url:String): String {
+        var text:String
+        val connection = URL(url).openConnection() as HttpURLConnection
+        try{
+            connection.connect()
+            text = connection.inputStream.use{it.reader().use{reader -> reader.readText()}}
+        }finally {
+            connection.disconnect()
+        }
+
+        return text
+    }
+
+    fun handleJson(jsonString:String?): Array<User>? {
+        val jsonArray = JSONArray(jsonString)
+        val list = ArrayList<User>()
+        var x = 0
+        while(x<jsonArray.length()){
+            val jsonObject = jsonArray.getJSONObject(x)
+
+            list.add(
+                User(
+                    jsonObject.getInt("id").toLong(),
+                    jsonObject.getString("nm"),
+                    jsonObject.getString("pp"),
+                    jsonObject.getString("tm"),
+                    true
+                )
+            )
+            x++
+        }
+        return list.toTypedArray()
     }
 
     fun getAll(db:AppDatabase): Array<User> {

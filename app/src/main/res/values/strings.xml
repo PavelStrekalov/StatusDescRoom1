@@ -2,9 +2,12 @@
     <string name="app_name">StatusDesc</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="objId">id: </string>
-    <string name="firstName">Имя: </string>
-    <string name="lastName">Фамилия: </string>
-    <string name="location">Адрес: </string>
-    <string name="active">Активность </string>
+    <string name="objId">id:</string>
+    <string name="firstName">Имя:</string>
+    <string name="lastName">Фамилия:</string>
+    <string name="location">Адрес:</string>
+    <string name="active">Активность</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

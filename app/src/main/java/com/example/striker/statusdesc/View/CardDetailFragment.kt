@@ -24,10 +24,10 @@ class CardDetailFragment:Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-          val job = GlobalScope.launch(Dispatchers.IO) {
+        val job = GlobalScope.launch(Dispatchers.IO) {
             db = DbUtils().dbInit(inflater.context,"UserDataBase")
             user = DbUtils().getUserById(db,arguments?.getLong("idObj")!!)
-          }
+        }
 
         return inflater.inflate(R.layout.card_detail_fragment,container, false)
     }

@@ -21,6 +21,9 @@ interface UsersDao {
     @Query(value = "SELECT * FROM User WHERE id = :id")
     fun getById(id: Long):User
 
+    @Query(value="SELECT COUNT(*) FROM User")
+    fun count():Int
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(newuser: User)
 
