@@ -19,7 +19,7 @@
                     android:text="TextView"
                     android:id="@+id/objId"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" android:textAlignment="center"/>
         </TableRow>
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
@@ -31,19 +31,19 @@
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/firstName"/>
+                    android:layout_height="wrap_content" android:id="@+id/firstName" android:textAlignment="center"/>
         </TableRow>
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
                   android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
             <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="133dp"
                     android:layout_height="match_parent"
                     android:text="@string/lastName" android:textSize="16sp"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/lastName"/>
+                    android:layout_height="wrap_content" android:id="@+id/lastName" android:textAlignment="center"/>
         </TableRow>
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
@@ -54,8 +54,8 @@
                     android:text="@string/location" android:textSize="16sp"/>
             <TextView
                     android:text="TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/location"/>
+                    android:layout_width="243dp"
+                    android:layout_height="wrap_content" android:id="@+id/location" android:textAlignment="center"/>
         </TableRow>
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
@@ -67,7 +67,7 @@
                     android:layout_marginStart="0dp"
                     android:layout_alignParentTop="true" android:id="@+id/active" android:layout_marginTop="0dp"
                     style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-                    android:fontFamily="sans-serif" android:textSize="16sp"/>
+                    android:fontFamily="sans-serif" android:textSize="16sp" android:textAlignment="viewStart"/>
         </TableRow>
     </TableLayout>
 

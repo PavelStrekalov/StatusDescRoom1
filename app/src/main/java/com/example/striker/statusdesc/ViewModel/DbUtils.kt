@@ -51,16 +51,18 @@ class DbUtils() {
         val jsonArray = JSONArray(jsonString)
         val list = ArrayList<User>()
         var x = 0
-        while(x<jsonArray.length()){
+        var active = false
+        var objCount = jsonArray.length()
+        while(x<objCount){
             val jsonObject = jsonArray.getJSONObject(x)
-
+            if(x==objCount-1)active=true
             list.add(
                 User(
                     jsonObject.getInt("id").toLong(),
                     jsonObject.getString("nm"),
                     jsonObject.getString("pp"),
                     jsonObject.getString("tm"),
-                    true
+                    active
                 )
             )
             x++

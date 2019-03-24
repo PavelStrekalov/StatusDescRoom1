@@ -3,9 +3,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="objId">id:</string>
-    <string name="firstName">Имя:</string>
-    <string name="lastName">Фамилия:</string>
-    <string name="location">Адрес:</string>
+    <string name="firstName">Инициалы:</string>
+    <string name="lastName">Убеждения:</string>
+    <string name="location">Годы правления:</string>
     <string name="active">Активность</string>
 
     <!-- TODO: Remove or change this placeholder text -->
