@@ -2,8 +2,11 @@ package com.example.striker.statusdesc.ViewModel
 
 import android.arch.persistence.room.Room
 import android.content.Context
+import android.widget.EditText
 import com.example.striker.statusdesc.Model.AppDatabase
 import com.example.striker.statusdesc.Model.User
+import com.example.striker.statusdesc.R.id.editText
+import com.example.striker.statusdesc.View.MainActivity
 import com.google.gson.JsonParser
 import com.vk.sdk.api.VKError
 import com.vk.sdk.api.VKRequest
@@ -24,6 +27,10 @@ class DbUtils() {
     fun getAllUsers(db: AppDatabase): Array<User> {
         var usersDao = getAll(db)
         return usersDao
+    }
+
+    fun filterUsers(db: AppDatabase, subString: String): Array<User> {
+        return db.UsersDao().filterDb(subString)
     }
 
     fun getUserById(db: AppDatabase, id: Long):User{
@@ -66,8 +73,8 @@ class DbUtils() {
                             id = it.asJsonObject.get("id").asLong,
                             firstName = it.asJsonObject.get("first_name").asString,
                             lastName = it.asJsonObject.get("last_name").asString,
-                            location = /*it.asJsonObject.get("site").asString*/"DS",
                             avatarUrl= it.asJsonObject.get("photo_50").asString,
+                            avatarFullUrl= it.asJsonObject.get("photo_max_orig").asString,
                             active = it.asJsonObject.get("online").asInt==1
                         )
                     )
@@ -143,5 +150,10 @@ class DbUtils() {
 
     fun dropDb(db: AppDatabase) {
         return db.UsersDao().dropDb()
+    }
+
+    fun searchFriends(db:AppDatabase, activity: MainActivity): Array<User> {
+        var subString: String = activity.findViewById<EditText>(editText).text.toString()
+        return DbUtils().filterUsers(db, subString)
     }
 }

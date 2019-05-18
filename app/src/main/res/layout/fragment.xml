@@ -8,13 +8,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" android:id="@+id/linearLayout" tools:layout_editor_absoluteY="16dp"
-            tools:layout_editor_absoluteX="0dp">
+            tools:layout_editor_absoluteX="0dp" tools:ignore="MissingConstraints">
 
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/editText" android:cursorVisible="true"
+                android:textColorLink="@color/vk_share_top_blue_color"
+                android:textColor="@color/vk_share_top_blue_color"
+                android:textColorHighlight="@color/vk_share_top_blue_color"
+                android:textColorHint="@color/vk_share_top_blue_color"
+                android:textCursorDrawable="@color/vk_share_top_blue_color"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" android:scrollbarAlwaysDrawVerticalTrack="false"
+                android:isScrollContainer="false" android:keepScreenOn="false"
+                android:nestedScrollingEnabled="false" android:baselineAligned="false" android:fadeScrollbars="false"
+                android:freezesText="false" android:allowUndo="false" android:autoText="true"
+                android:filterTouchesWhenObscured="true" android:saveEnabled="false" android:textIsSelectable="false"
+                android:enabled="true" android:hint="Поиск друзей"/>
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-        />
+        >
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 
     <com.github.rahatarmanahmed.cpv.CircularProgressView

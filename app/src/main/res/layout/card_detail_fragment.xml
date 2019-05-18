@@ -7,10 +7,11 @@
 
     <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" android:layout_marginTop="0dp" android:layout_alignParentTop="true">
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
+                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal"
+                  android:layout_margin="7dp">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -23,7 +24,8 @@
         </TableRow>
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
+                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal"
+                  android:layout_margin="7dp">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -35,7 +37,8 @@
         </TableRow>
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
+                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal"
+                  android:layout_margin="7dp">
             <TextView
                     android:layout_width="133dp"
                     android:layout_height="match_parent"
@@ -47,19 +50,8 @@
         </TableRow>
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/location" android:textSize="16sp"/>
-            <TextView
-                    android:text="TextView"
-                    android:layout_width="243dp"
-                    android:layout_height="wrap_content" android:id="@+id/location" android:textAlignment="center"/>
-        </TableRow>
-
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal" android:layout_margin="7dp">
+                  android:orientation="horizontal" android:gravity="fill_vertical|fill_horizontal"
+                  android:layout_margin="7dp">
             <CheckBox
                     android:text="@string/active"
                     android:layout_width="wrap_content"
@@ -67,8 +59,16 @@
                     android:layout_marginStart="0dp"
                     android:layout_alignParentTop="true" android:id="@+id/active" android:layout_marginTop="0dp"
                     style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-                    android:fontFamily="sans-serif" android:textSize="16sp" android:textAlignment="viewStart"/>
+                    android:fontFamily="sans-serif" android:textSize="16sp" android:textAlignment="viewStart"
+                    android:clickable="false"/>
         </TableRow>
     </TableLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            android:id="@+id/avatar_full"
+            android:layout_marginStart="129dp"
+            android:layout_marginTop="166dp" android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

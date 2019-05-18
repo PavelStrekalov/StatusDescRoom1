@@ -3,13 +3,19 @@ package com.example.striker.statusdesc.Model
 import android.arch.persistence.room.*
 
 @Entity
-class User(id:Long,firstName:String,lastName:String,location:String,avatarUrl: String,active:Boolean) {
+class User(
+    id: Long,
+    firstName: String,
+    lastName: String,
+    avatarUrl: String,
+    avatarFullUrl: String,
+    active: Boolean) {
     @PrimaryKey()
     var id: Long = id
     var firstName: String ?= firstName
     var lastName:String ?= lastName
-    var location:String ?= location
     var avatarUrl : String ?= avatarUrl
+    var avatarFullUrl : String ?= avatarFullUrl
     var active = active
 }
 
@@ -24,6 +30,9 @@ interface UsersDao {
 
     @Query(value = "DELETE FROM User WHERE id is not null")
     fun dropDb()
+
+    @Query(value = "SELECT * FROM User WHERE firstName like :substring OR lastName like :substring")
+    fun filterDb(substring: String): Array<User>
 
     @Query(value="SELECT COUNT(*) FROM User")
     fun count():Int

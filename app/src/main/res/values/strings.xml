@@ -1,10 +1,8 @@
 <resources>
     <string name="app_name">StatusDesc</string>
     <string name="objId">id:</string>
-    <string name="firstName">Инициалы:</string>
-    <string name="lastName">Убеждения:</string>
-    <string name="location">Годы правления:</string>
-    <string name="active">Активность</string>
+    <string name="firstName">Имя:</string>
+    <string name="lastName">Фамилия:</string>
+    <string name="active">Online</string>
     <integer name="com_vk_sdk_AppId">6925537</integer>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
